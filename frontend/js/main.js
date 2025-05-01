@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:5000/api"; // Update with deployed URL (e.g., Vercel)
+//const API_URL = "http://localhost:5000/api"; // Update with deployed URL (e.g., Vercel)
+const API_URL = "https://sherlocks-life-task.onrender.com"
+
 let currentTable = "agents";
 
 document.getElementById("table-select").addEventListener("change", (e) => {
