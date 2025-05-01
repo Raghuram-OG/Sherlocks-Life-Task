@@ -10,12 +10,12 @@ from routes.key_assignment import key_assignment_bp
 from routes.agent_hourly_metrics import agent_hourly_metrics_bp
 
 # Initialize Flask app with proper configuration
-app = Flask(_name_, static_folder=None)
+app = Flask(__name__, static_folder=None)
 CORS(app)
 
 # ================= Frontend Configuration =================
 # Get absolute path to frontend directory
-current_dir = os.path.dirname(os.path.abspath(_file_))
+current_dir = os.path.dirname(os.path.abspath(__file__))
 frontend_path = os.path.join(current_dir, '../frontend')
 
 # Serve frontend files
