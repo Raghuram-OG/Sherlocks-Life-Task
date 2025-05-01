@@ -1,5 +1,5 @@
 //const API_URL = "http://localhost:5000/api"; // Update with deployed URL (e.g., Vercel)
-const API_URL = "https://sherlocks-life-task.onrender.com"
+const API_URL = "https://sherlocks-life-task.onrender.com/api"
 
 let currentTable = "agents";
 
