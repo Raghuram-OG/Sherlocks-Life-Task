@@ -34,5 +34,5 @@ app.register_blueprint(calls_bp, url_prefix="/api")
 app.register_blueprint(key_assignment_bp, url_prefix="/api")
 app.register_blueprint(agent_hourly_metrics_bp, url_prefix="/api")
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
