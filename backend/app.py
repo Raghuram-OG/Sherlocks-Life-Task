@@ -1,5 +1,4 @@
-import os
-from flask import Flask, send_from_directory
+from flask import Flask
 from flask_cors import CORS
 from routes.agents import agents_bp
 from routes.onboarding import onboarding_bp
@@ -7,29 +6,14 @@ from routes.calls import calls_bp
 from routes.key_assignment import key_assignment_bp
 from routes.agent_hourly_metrics import agent_hourly_metrics_bp
 
-# Initialize Flask app with proper static configuration
-app = Flask(_name_, static_folder=None)
+app = Flask(__name__)
 CORS(app)
 
-# ================= Frontend Serving =================
-# Get absolute path to frontend directory
-current_dir = os.path.dirname(os.path.abspath(_file_))
-frontend_path = os.path.join(current_dir, '../frontend')
-
-@app.route('/')
-def serve_index():
-    return send_from_directory(frontend_path, 'index.html')
-
-@app.route('/<path:path>')
-def serve_static(path):
-    return send_from_directory(frontend_path, path)
-
-# ================= API Routes =================
 app.register_blueprint(agents_bp, url_prefix="/api")
 app.register_blueprint(onboarding_bp, url_prefix="/api")
 app.register_blueprint(calls_bp, url_prefix="/api")
 app.register_blueprint(key_assignment_bp, url_prefix="/api")
 app.register_blueprint(agent_hourly_metrics_bp, url_prefix="/api")
 
-if _name_ == "_main_":
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+if __name__ == "__main__":
+    app.run(debug=True)
